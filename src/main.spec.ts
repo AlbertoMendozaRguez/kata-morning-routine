@@ -11,7 +11,8 @@ describe("Default test", () => {
   })
 
   it("display Read and study between 07:00 and 07:59", () => {
-    const morningRoutine = new MorningRoutineImplementation(new Date())
+    const fakeDate = new Date().setHours(7)
+    const morningRoutine = new MorningRoutineImplementation(new Date(fakeDate))
     const result = morningRoutine.whatShouldIDoNow()
 
     expect(result).toEqual("Read and study")
@@ -22,5 +23,12 @@ describe("Default test", () => {
     const result = morningRoutine.whatShouldIDoNow()
 
     expect(result).toEqual("Have breakfast")
+  })
+
+  it("display No activity outside the defined time range", () => {
+    const morningRoutine = new MorningRoutineImplementation(new Date())
+    const result = morningRoutine.whatShouldIDoNow()
+
+    expect(result).toEqual("No activity")
   })
 })

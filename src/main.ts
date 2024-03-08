@@ -8,6 +8,8 @@ export class MorningRoutineImplementation implements MorningRoutine {
   whatShouldIDoNow() {
     if (this.currentMoment.getHours() >= 6 && this.currentMoment.getHours() < 7) return "Do exercise"
 
-    return "Read and study"
+    if (this.currentMoment.getHours() >= 7 && this.currentMoment.getHours() < 8) return "Read and study"
+
+    return "Have breakfast"
   }
 }
