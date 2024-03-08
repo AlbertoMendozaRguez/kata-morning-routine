@@ -34,7 +34,10 @@ describe("Default test", () => {
   })
 
   it("display Do exercise and Take a shower between 06:45 to 06:59", () => {
-    const morningRoutine = new MorningRoutineImplementation(new Date())
+    const fakeDate = new Date()
+    fakeDate.setHours(6)
+    fakeDate.setMinutes(45)
+    const morningRoutine = new MorningRoutineImplementation(fakeDate)
     const result = morningRoutine.whatShouldIDoNow()
 
     expect(result).toEqual("Do exercise,Take a shower")

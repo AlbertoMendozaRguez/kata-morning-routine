@@ -8,7 +8,11 @@ export class MorningRoutineImplementation implements MorningRoutine {
   whatShouldIDoNow() {
     const activities: string[] = []
 
-    if (this.currentMoment.getHours() >= 6 && this.currentMoment.getHours() < 7) activities.push("Do exercise")
+    if (this.currentMoment.getHours() >= 6 && this.currentMoment.getHours() < 7) {
+      activities.push("Do exercise")
+
+      if (this.currentMoment.getMinutes() >= 45) activities.push("Take a shower")
+    }
 
     if (this.currentMoment.getHours() >= 7 && this.currentMoment.getHours() < 8) activities.push("Read and study")
 
